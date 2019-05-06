@@ -126,8 +126,8 @@ That's it!
 ## API
 
 #### ActionCreatorBuilder
-See interface declaration in `./types/IActionCreatorBuilder.d.ts` 👀
+See interface declaration in [`./types/IActionCreatorBuilder.d.ts`](https://github.com/queses/redux-ease/blob/master/types/IActionCreatorBuilder.d.ts) 👀
 
 #### ReducerBuilder
-See interface declaration in `./types/IReducerBuilder.d.ts` 👀
+See interface declaration in [`./types/IReducerBuilder.d.ts`](https://github.com/queses/redux-ease/blob/master/types/IReducerBuilder.d.ts) 👀
 

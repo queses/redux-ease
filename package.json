@@ -1,0 +1,13 @@
+{
+  "name": "redux-ease",
+  "version": "0.5.0",
+  "description": "Reduce Redux boilerplate with ease",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": "Max Kobozev <quesesr@gmail.com>",
+  "license": "MIT",
+  "repository": "queses/redux-ease",
+  "devDependencies": {
+    "typescript": "^3.4.5"
+  }
+}

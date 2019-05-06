@@ -1,0 +1,45 @@
+Arguments: 
+  /home/ratt/.nvm/versions/node/v10.15.3/bin/node /home/ratt/.nvm/versions/node/v10.15.3/bin/yarn add -D typesript
+
+PATH: 
+  /home/ratt/.nvm/versions/node/v10.15.3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/Program Files/WindowsApps/CanonicalGroupLimited.Ubuntu18.04onWindows_1804.2018.817.0_x64__79rhkp1fndgsc:/mnt/c/ProgramData/scoop/shims:/mnt/c/Program Files (x86)/Intel/Intel(R) Management Engine Components/iCLS:/mnt/c/Program Files/Intel/Intel(R) Management Engine Components/iCLS:/mnt/c/Windows/System32:/mnt/c/Windows:/mnt/c/Windows/System32/wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0:/mnt/c/Program Files (x86)/Intel/Intel(R) Management Engine Components/DAL:/mnt/c/Program Files/Intel/Intel(R) Management Engine Components/DAL:/mnt/c/Program Files (x86)/Intel/Intel(R) Management Engine Components/IPT:/mnt/c/Program Files/Intel/Intel(R) Management Engine Components/IPT:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Windows/System32:/mnt/c/Windows:/mnt/c/Windows/System32/wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0:/mnt/c/Windows/System32/OpenSSH:/mnt/c/Software/VS Code/bin:/mnt/c/Users/MaxRattle/.windows-build-tools/python27:/mnt/c/Users/MaxRattle/scoop/apps/nodejs-lts/10.15.1/node_modules/npm/node_modules/npm-lifecycle/node-gyp-bin:/mnt/c/Users/MaxRattle/scoop/persist/nodejs-lts/bin/node_modules/windows-build-tools/node_modules/.bin:/mnt/c/Users/MaxRattle/scoop/persist/nodejs-lts/bin/node_modules/.bin:/mnt/c/Users/MaxRattle/scoop/apps/nodejs-lts/10.15.1/bin:/mnt/c/Users/MaxRattle/scoop/apps/nodejs-lts/current:/mnt/c/Users/MaxRattle/scoop/apps/oraclejdk8/8u201-b09/bin:/mnt/c/Users/MaxRattle/scoop/apps/oraclejre8/8u201-b09/bin:/mnt/c/Users/MaxRattle/scoop/shims:/mnt/c/Users/MaxRattle/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/MaxRattle/AppData/Local/Microsoft/WindowsApps:/snap/bin
+
+Yarn version: 
+  1.13.0
+
+Node version: 
+  10.15.3
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/typesript: Not found
+      at Request.params.callback [as _callback] (/home/ratt/.nvm/versions/node/v10.15.3/lib/node_modules/yarn/lib/cli.js:66255:18)
+      at Request.self.callback (/home/ratt/.nvm/versions/node/v10.15.3/lib/node_modules/yarn/lib/cli.js:129397:22)
+      at Request.emit (events.js:189:13)
+      at Request.<anonymous> (/home/ratt/.nvm/versions/node/v10.15.3/lib/node_modules/yarn/lib/cli.js:130369:10)
+      at Request.emit (events.js:189:13)
+      at IncomingMessage.<anonymous> (/home/ratt/.nvm/versions/node/v10.15.3/lib/node_modules/yarn/lib/cli.js:130291:12)
+      at Object.onceWrapper (events.js:277:13)
+      at IncomingMessage.emit (events.js:194:15)
+      at endReadableNT (_stream_readable.js:1125:12)
+      at process._tickCallback (internal/process/next_tick.js:63:19)
+
+npm manifest: 
+  {
+    "name": "redux-ease",
+    "version": "0.5.0",
+    "description": "Reduce Redux boilerplate with ease",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "author": "Max Kobozev <quesesr@gmail.com>",
+    "license": "MIT",
+    "repository": "queses/redux-ease"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

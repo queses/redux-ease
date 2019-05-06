@@ -1,5 +1,3 @@
-import { Reducer } from "redux";
-
 export interface TActionCreator <A = any, P = any> {
   (actionTypeCode: string, creator: (...args: A[]) => P): TExportedActionCreator<A, P>
   appendToTypeCode?: string

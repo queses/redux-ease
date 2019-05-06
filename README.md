@@ -2,6 +2,18 @@
 
 Reduce Redux boilerplate with ease 🤗
 
+## Installation
+
+```
+yarn add redux-ease
+```
+
+or...
+
+```
+npm i redux-ease
+```
+
 ## Usage example
 
 Let's make a simple counter reducer. It should handle two action types: `COUNTER_INCREASE` to increase counter value and `COUNTER_TO_ZERO` to reset counter value.

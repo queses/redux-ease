@@ -1,4 +1,4 @@
-import { TActionHandler, TExportedActionCreator, TAction } from "../types/types";
+import { TActionHandler, TExportedActionCreator, TAction, TDynamicExportedActionCreator } from "../types/types";
 import { IReducerBuilder } from "../types/IReducerBuilder";
 
 export class ReducerBuilder <S> implements IReducerBuilder<S> {

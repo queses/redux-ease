@@ -10,7 +10,7 @@ export interface IReducerBuilder <S> {
     handler: TActionHandler<S, P>
   ): this
 
-  handleType <C extends TDynamicExportedActionCreator <A, P>, A = any, P = any> (
+  handleType <P = any> (
     actionCreators: string | string[], 
     handler: TActionHandler<S, P>
   ): this

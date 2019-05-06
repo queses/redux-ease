@@ -2,7 +2,8 @@ import { getActionCreator, getReducerBuilder } from "./src/getters";
 import { TDynamicExportedActionCreator } from "./types/types";
 
 const initialState = {
-  counter: 0
+  counter: 0,
+  canGoBelowZero: false
 }
 
 const actionBuilder = getActionCreator('COUNTER')
@@ -27,7 +28,9 @@ export const reducer = getReducerBuilder(initialState)
   .copyState()
   .handle(increace, (s, a) => ({ counter: s.counter + a.payload.amount }))
   .handleType<{ amount: number }>( // Unnecessary to specify type 
-    actions.DECREACE, (s, a) => ({ counter: s.counter - a.payload.amount })
+    actions.DECREACE, (s, a) => ({
+      counter: (s.canGoBelowZero || a.payload.amount < s.counter) ? s.counter - a.payload.amount : 0
+    })
   )
   .handleType(actions.TO_ZERO, () => ({ counter: 0 }))
   .build()

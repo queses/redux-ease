@@ -27,7 +27,7 @@ export interface TAction <P = any> {
 }
 
 export interface TActionHandler <S, P> {
-  (s: S, a: TAction<P>): S
+  (s: S, a: TAction<P>): S | {}
 }
 
 export interface TReducer<S = any, A extends TAction<any> = any> {

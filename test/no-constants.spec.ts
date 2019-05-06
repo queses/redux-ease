@@ -4,8 +4,10 @@ describe('no constants', () => {
   it('should create actions and reducer', () => {
     const actionBuilder = getActionCreator('TEST', '/')
     const initialState = {
-      value: 1
+      value: 1,
+      canGoBelowZero: false
     }
+    
     const multiply = actionBuilder.build('MULTIPLY', (multiplier: number = 2) => ({ multiplier }))
     
     expect(multiply(4).payload.multiplier).toEqual(4)

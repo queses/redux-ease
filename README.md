@@ -103,7 +103,7 @@ export const counterReducer = getReducerBuilder(initialState)
   .build()
 ```
 
-Unfortunately, TypeScript doesn't know action's payload type, but we can specify it manyally:
+Unfortunately, TypeScript doesn't know action's payload type in this case, but we can specify it manyally:
 
 ```js
 // counter-reducer.ts

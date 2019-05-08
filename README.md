@@ -117,7 +117,7 @@ export const counterReducer = getReducerBuilder(initialState)
   .build()
 ```
 
-Unfortunately, type hinting doesn't know action's payload type. However, if you're usng TypeScript, you can specify it manyally:
+Unfortunately, type hinting doesn't know action's payload type in this case. However, if you're usng TypeScript, you can specify it manyally:
 
 ```js
   // Note that instead of writing payload typings here you can write them in separate .d.ts file. 

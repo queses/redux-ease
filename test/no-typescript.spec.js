@@ -19,4 +19,11 @@ describe('no typescript', () => {
 
     expect(reducer(undefined, multiply(5)).value).toEqual(5)
   })
+
+  it('should create action constants', () => {
+    const actionBuilder = getActionCreator('TEST', '/')
+    const actions = actionBuilder.getConstants([ 'MULTIPLY', 'TO_ZERO' ])
+    
+    expect(actions.MULTIPLY).toEqual('TEST/MULTIPLY')
+  })
 })

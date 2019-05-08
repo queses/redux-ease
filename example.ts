@@ -13,7 +13,7 @@ const actions = actionBuilder.getConstants([
   'TO_ZERO'
 ])
 
-export const increace = actionBuilder.build('INCREACE', (amount: number = 1) => ({ amount }))
+export const increase = actionBuilder.build('INCREASE', (amount: number = 1) => ({ amount }))
 
 export const decrease: TDynamicExportedActionCreator<number, { amount: number }> = actionBuilder.buildDynamic((amount: number = 1) => ({
   type: actions.DECREACE,
@@ -26,7 +26,7 @@ export const toZero = actionBuilder.buildDynamic(() => ({
 
 export const reducer = getReducerBuilder(initialState)
   .copyState()
-  .handle(increace, (s, a) => ({ counter: s.counter + a.payload.amount }))
+  .handle(increase, (s, a) => ({ counter: s.counter + a.payload.amount }))
   .handleType<{ amount: number }>( // Unnecessary to specify type 
     actions.DECREACE, (s, a) => ({
       counter: (s.canGoBelowZero || a.payload.amount < s.counter) ? s.counter - a.payload.amount : 0

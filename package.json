@@ -1,6 +1,6 @@
 {
   "name": "redux-ease",
-  "version": "0.5.3",
+  "version": "0.6",
   "description": "Reduce Redux boilerplate with ease",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

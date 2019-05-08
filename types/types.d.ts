@@ -3,6 +3,10 @@ export interface TActionCreator <A = any, P = any> {
   appendToTypeCode?: string
 }
 
+export interface TActionPayloadCreator <A, P> {
+  (...args: A[]): P
+}
+
 export interface TGetActionCreator <A = any[], P = any> {
   (reducerCode?: string, joinSymbol?: string): TActionCreator<A, P>
 }

@@ -2,6 +2,8 @@
 
 Reduce Redux boilerplate with ease 🤗
 
+Works great with both JavaScript and TypeScript.
+
 ## Installation
 
 ```
@@ -43,7 +45,7 @@ Let's build our action creators:
 ```js
 // counter-actions.ts
 
-export const counterIncreace = actionBuilder.build('INCREACE', (amount: number = 1) => ({ amount }))
+export const counterIncrease = actionBuilder.build('INCREASE', (amount = 1) => ({ amount }))
 
 export const counterToZero = actionBuilder.build('TO_ZERO')
 ```
@@ -57,23 +59,35 @@ import { getReducerBuilder } from "redux-ease";
 
 export const counterReducer = getReducerBuilder(initialState)
   .copyState()
-  // TypeScript knows: action's payload has `amount` property with `number` type:
-  .handle(counterIncreace, (s, a) => ({ value: s.value + a.payload.amount }))
+  // Type hinting knows that action's payload has `amount` property:
+  .handle(counterIncrease, (s, a) => ({ value: s.value + a.payload.amount }))
   .hanlde(counterToZero, () => ({ value: 0 })
   .build()
 ```
 
-Thats it! 8 lines and we're done. Also, if you're using TypeScript as I do, you can see nice type hints for action payload content.
+Thats it! 8 lines and we're done. If you're using IDE which supports TypeScript-based type hinting (WebStorm or VS Code, for example), you can see nice type hints for action payload content.
 
-## Alternative option: With action constants
+#### Extending action creators
+
+If you need to add new logic to existent action creator or change it's arguments list, you can use the `extend` method of action creator builder. Note that payload of extended action creator should be compatible with parent's payload (type hinting will notify you about this). 
+
+```js
+// counter-actions.ts
+
+export const counterDoubleIncrease = actionBuilder.extend(counterIncrease, (amount: number = 1) => ({ amount: amount * 2 }))
+```
+
+The extended action creater will receive the same type as parent, so you don't need to make any changes in reducer: if parent action creator is handled in reducer, then all it's chidlrens will be handled too.
+
+### Alternative option: With action constants
 
 If you want to define actions constants, Redux Ease also can help you to simplify this task:
 
 ```js
 // counter-actions.ts
 
-// TypeScript knows: `counterActions` has `INCREASE` and `TO_ZERO` properties.
-export const counterActions = actionBuilder.getConstants(['INCREACE', 'TO_ZERO'])
+// Type hinting knows that `counterActions` has `INCREASE` and `TO_ZERO` properties.
+export const counterActions = actionBuilder.getConstants(['INCREASE', 'TO_ZERO'])
 
 /*
   `counterActions` equals {
@@ -83,12 +97,12 @@ export const counterActions = actionBuilder.getConstants(['INCREACE', 'TO_ZERO']
 */
 ```
 
-Alternatively, if you prefer to manualy create actions, you can do this:
+Alternatively, if you prefer to create actions manualy you can do this:
 
 ```js
 // counter-actions.ts
 
-export const INCREACE = actionBuilder.getConst('INCREACE') // equals 'COUNTER_INCREACE'
+export const INCREASE = actionBuilder.getConst('INCREASE') // equals 'COUNTER_INCREASE'
 ```
 
 Then, let's create reducer:
@@ -98,19 +112,16 @@ Then, let's create reducer:
 
 export const counterReducer = getReducerBuilder(initialState)
   .copyState()
-  .handle(counterActions.INCREACE, (s, a) => ({ value: s.value + a.payload.amount }))
+  .handle(counterActions.INCREASE, (s, a) => ({ value: s.value + a.payload.amount }))
   .hanlde(counterActions.TO_ZERO, () => ({ value: 0 })
   .build()
 ```
 
-Unfortunately, TypeScript doesn't know action's payload type, but we can specify it manyally:
+Unfortunately, type hinting doesn't know action's payload type. However, if you're usng TypeScript, you can specify it manyally:
 
 ```js
-// counter-reducer.ts
-
-// ...
-  .handle<{ amount: number }>(counterActions.INCREACE, (s, a) => ({ value: s.value + a.payload.amount }))
-// ...
+  // Note that instead of writing payload typings here you can write them in separate .d.ts file. 
+  .handle<{ amount: number }>(counterActions.INCREASE, (s, a) => ({ value: s.value + a.payload.amount }))
 ```
 
 ## Usage with immutable library
@@ -128,7 +139,7 @@ const initialState = Immutable({ counter: 0 })
 
 export const counterReducer = getReducerBuilder(initialState)
   .copyState()
-  .handle(counterIncreace, (s, a) => s.set('value', s.value + a.payload.amount))
+  .handle(counterIncrease, (s, a) => s.set('value', s.value + a.payload.amount))
   .hanlde(counterToZero, () => s.set('value', 0)
   .build()
 ```
